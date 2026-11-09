@@ -1,0 +1,24 @@
+baseURL: https://terr4m.github.io/tflint-ruleset-idiomatic/
+title: TFLint Ruleset Idiomatic
+disablePathToLower: false
+
+disableKinds:
+  - taxonomy
+  - term
+
+module:
+  proxy: direct
+  hugoVersion:
+    extended: true
+    min: 0.158.0
+  imports:
+    - path: github.com/alex-shpak/hugo-book
+      disable: false
+
+params:
+  BookSection: "*"
+  BookSearch: false
+  BookToC: false
+  BookRepo: ""
+  BookEditPath: ""
+  BookComments: false

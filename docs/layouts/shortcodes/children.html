@@ -1,0 +1,12 @@
+{{ $page := .Page }}
+{{ with .Get "path" }}
+  {{ $page = $.Site.GetPage . }}
+{{ end }}
+
+<ul>
+  {{ range $page.Pages.ByTitle }}
+  <li>
+    <a href="{{ .RelPermalink }}"><code>{{ .Title }}</code></a>: {{ .Description | markdownify }}
+  </li>
+  {{ end }}
+</ul>

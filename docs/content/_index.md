@@ -15,7 +15,7 @@ To use the TFLint Ruleset Idiomatic plugin, add the following configuration to y
 plugin "idiomatic" {
   source    = "github.com/terr4m/tflint-ruleset-idiomatic"
   signature = "attestation"
-  version   = "0.0.1"
+  version   = "0.0.2"
   enabled   = true
 }
 ```

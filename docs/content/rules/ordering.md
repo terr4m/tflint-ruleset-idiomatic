@@ -10,11 +10,39 @@ description: Ensures that specific well-known block attributes and nested blocks
 - Well known attributes and nested blocks should follow a specific order within their block.
 - Only the position of an entry relative to the other entries is checked. Empty lines between entries are not part of this rule, they are covered by [`idiomatic_grouping`](./grouping/).
 - Only top-level `variable`, `output`, `resource`, `data` and `module` blocks are checked. Other blocks, and blocks nested inside them, are ignored.
-- Files written in JSON syntax (`.tf.json`) are not checked.
+
+### Severity
+
+This rule reports issues at the `warning` level.
+
+### Configuration
+
+There are no configuration options for this rule. If you wish to disable this rule, you can do so in your `.tflint.hcl` file.
+
+### Example
+
+```hcl
+resource "aws_instance" "web" {
+  count = 2
+
+  provider = aws.primary
+
+  ami           = "ami-0123456789abcdef0"
+  instance_type = "t3.micro"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  depends_on = [aws_security_group.web]
+}
+```
+
+### Ordering
 
 The `...` entries below stand for any other attributes or blocks, which can appear in any order here. Their order is the concern of [`idiomatic_sorting`](./sorting/).
 
-### Variables
+#### Variables
 
 1. `description`
 2. `type`
@@ -26,7 +54,7 @@ The `...` entries below stand for any other attributes or blocks, which can appe
 8. `deprecated`
 9. `validation`
 
-### Outputs
+#### Outputs
 
 1. `description`
 2. `type`
@@ -37,7 +65,7 @@ The `...` entries below stand for any other attributes or blocks, which can appe
 7. `precondition`
 8. `depends_on`
 
-### Resources/Data Sources
+#### Resources/Data Sources
 
 1. `count` or `for_each`
 2. `provider`
@@ -47,7 +75,7 @@ The `...` entries below stand for any other attributes or blocks, which can appe
 6. `lifecycle`
 7. `depends_on`
 
-### Modules
+#### Modules
 
 1. `source`
 2. `version`
@@ -56,11 +84,3 @@ The `...` entries below stand for any other attributes or blocks, which can appe
 5. `providers`
 6. `...` (other attributes)
 7. `depends_on`
-
-### Severity
-
-This rule reports issues at the `warning` level.
-
-### Configuration
-
-There are no configuration options for this rule. If you wish to disable this rule, you can do so in your `.tflint.hcl` file.

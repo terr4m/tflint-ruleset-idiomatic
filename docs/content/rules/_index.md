@@ -5,7 +5,7 @@ weight: 1
 
 ## Rules
 
-The following rules are provided by this ruleset and only apply to `*.tf` files. Individual rules can be disabled in your `.tflint.hcl` file if desired.
+The following rules are provided by this ruleset and only apply to `*.tf` files. Files written in JSON syntax (`*.tf.json`) are not checked. Individual rules can be disabled in your `.tflint.hcl` file if desired.
 
 {{< children >}}
 

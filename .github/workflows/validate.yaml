@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
         with:
           go-version-file: go.mod
           cache: false
@@ -44,7 +44,7 @@ jobs:
           args: --timeout=10m
 
       - name: Lint markdown
-        uses: rvben/rumdl@0d3d6e4f07c585a9433df162949ca0fe280a40dd # v0.3.4
+        uses: rvben/rumdl@ba563d6780c6119bd526c869a730b492c1ad54e5 # v0.3.5
         with:
           report-type: annotations
 
@@ -63,7 +63,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
         with:
           go-version-file: go.mod
           cache: false
@@ -140,7 +140,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
         with:
           go-version-file: go.mod
           cache: false
@@ -215,7 +215,7 @@ jobs:
         run: echo "version=$(yq --unwrapScalar '.module.hugoVersion.max // "latest"' ./hugo.yaml)" >> "${GITHUB_OUTPUT}"
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
+        uses: peaceiris/actions-hugo@d1c81a15d4e6dca7086a17b9c2565cb70fd576bf # v3.3.0
         with:
           hugo-version: ${{ steps.hugo_version.outputs.version }}
           extended: true
